@@ -38,14 +38,14 @@ app.get('/', function(req, res) {
 });
 
 app.get('/scrape', function(req, res) {
-request('https://www.wsj.com/', function(error, response, html) {
+request('https://www.irishcentral.com', function(error, response, html) {
 var $ = cheerio.load(html);
 $('article h2').each(function(i, element) {
 
             var result = {};
 
             result.headline = $(this).children('a').text();
-            result.link = $(this).children('a').attr('href');
+            result.summary = $(this).children('a').attr('href');
 
             var entry = new Article (result);
 
