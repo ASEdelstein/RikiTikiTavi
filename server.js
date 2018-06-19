@@ -9,6 +9,10 @@ var mongoose = require("mongoose");
 var axios = require("axios");
 var cheerio = require("cheerio");
 
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI);
+
+
 // Require all models
 var db = require("./models");
 
